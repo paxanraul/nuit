@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ProductCard } from "@/components/product-card";
 import { getProduct, products } from "@/data/products";
 import { formatPrice } from "@/lib/utils";
+import { absoluteUrl } from "@/lib/site";
 
 type ProductPageProps = { params: Promise<{ slug: string }> };
 
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   return {
     title: product.shortName,
     description: product.description,
-    alternates: { canonical: `/magazin/${product.slug}` },
+    alternates: { canonical: absoluteUrl(`/magazin/${product.slug}/`) },
     openGraph: {
       title: `${product.name} — NUIT`,
       description: product.description,
@@ -37,7 +38,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    image: product.images.map((image) => `https://nuit-store.ru${image}`),
+    image: product.images.map((image) => absoluteUrl(image)),
     description: product.description,
     sku: product.id,
     brand: { "@type": "Brand", name: "NUIT" },

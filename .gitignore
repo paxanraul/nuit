@@ -1,9 +1,12 @@
 node_modules
 .next
 out
+.vercel
+coverage
 *.log
 *.tsbuildinfo
 .qa
+.aidesigner
 .DS_Store
 .env*
 !.env.example

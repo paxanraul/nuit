@@ -4,12 +4,13 @@ import { ArrowRight } from "lucide-react";
 import { ProductCard } from "@/components/product-card";
 import { Reveal } from "@/components/reveal";
 import { products } from "@/data/products";
+import { withBasePath } from "@/lib/site";
 
 const campaignImages = [
-  ["/images/wheel-white.jpeg", "Белая футболка NUIT у колеса обозрения"],
-  ["/images/two-front-night.jpeg", "Черная и белая футболки NUIT в вечернем городе"],
-  ["/images/sunset-close.jpeg", "Черная футболка NUIT на фоне заката"],
-  ["/images/two-front-day.jpeg", "Герои NUIT у колеса обозрения"],
+  [withBasePath("/images/wheel-white.jpeg"), "Белая футболка NUIT у колеса обозрения"],
+  [withBasePath("/images/two-front-night.jpeg"), "Черная и белая футболки NUIT в вечернем городе"],
+  [withBasePath("/images/sunset-close.jpeg"), "Черная футболка NUIT на фоне заката"],
+  [withBasePath("/images/two-front-day.jpeg"), "Герои NUIT у колеса обозрения"],
 ] as const;
 
 export default function HomePage() {
@@ -17,7 +18,7 @@ export default function HomePage() {
     <>
       <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-night text-paper" aria-labelledby="hero-title">
         <Image
-          src="/images/hero-sunset.jpeg"
+          src={withBasePath("/images/hero-sunset.jpeg")}
           alt="Футболка NUIT на фоне заката"
           fill
           priority

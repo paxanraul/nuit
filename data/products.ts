@@ -1,5 +1,7 @@
 export type ProductColor = "Черный" | "Белый";
 
+import { withBasePath } from "@/lib/site";
+
 export type Product = {
   id: string;
   slug: string;
@@ -27,13 +29,13 @@ export const products: Product[] = [
     shortName: "Two Strangers — Black",
     price: 2222,
     color: "Черный",
-    cardImage: "/images/product-black-front.jpeg",
-    hoverImage: "/images/product-black-back.jpeg",
+    cardImage: withBasePath("/images/product-black-front.jpeg"),
+    hoverImage: withBasePath("/images/product-black-back.jpeg"),
     images: [
-      "/images/product-black-front.jpeg",
-      "/images/product-black-back.jpeg",
-      "/images/walk-black.jpeg",
-      "/images/sunset-close.jpeg",
+      withBasePath("/images/product-black-front.jpeg"),
+      withBasePath("/images/product-black-back.jpeg"),
+      withBasePath("/images/walk-black.jpeg"),
+      withBasePath("/images/sunset-close.jpeg"),
     ],
   },
   {
@@ -44,13 +46,13 @@ export const products: Product[] = [
     shortName: "Two Strangers — White",
     price: 2222,
     color: "Белый",
-    cardImage: "/images/product-white-front.jpeg",
-    hoverImage: "/images/product-white-back.jpeg",
+    cardImage: withBasePath("/images/product-white-front.jpeg"),
+    hoverImage: withBasePath("/images/product-white-back.jpeg"),
     images: [
-      "/images/product-white-front.jpeg",
-      "/images/product-white-back.jpeg",
-      "/images/walk-white.jpeg",
-      "/images/white-back.jpeg",
+      withBasePath("/images/product-white-front.jpeg"),
+      withBasePath("/images/product-white-back.jpeg"),
+      withBasePath("/images/walk-white.jpeg"),
+      withBasePath("/images/white-back.jpeg"),
     ],
   },
 ];

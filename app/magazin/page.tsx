@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { ProductCard } from "@/components/product-card";
 import { products } from "@/data/products";
+import { withBasePath } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Магазин",
   description: "Первая коллекция NUIT. Футболки свободного силуэта, созданные для ночей, которые остаются в памяти.",
-  openGraph: { title: "Магазин — NUIT", images: [{ url: "/images/walk-black.jpeg", width: 960, height: 1280 }] },
+  openGraph: { title: "Магазин — NUIT", images: [{ url: withBasePath("/images/walk-black.jpeg"), width: 960, height: 1280 }] },
 };
 
 export default function ShopPage() {
