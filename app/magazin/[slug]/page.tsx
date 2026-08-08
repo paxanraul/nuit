@@ -2,19 +2,17 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ProductCard } from "@/components/product-card";
-import { getProduct, products } from "@/data/products";
+import { getProduct, getPublishedProducts } from "@/lib/products";
 import { formatPrice } from "@/lib/utils";
 import { absoluteUrl } from "@/lib/site";
 
 type ProductPageProps = { params: Promise<{ slug: string }> };
 
-export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProduct(slug);
+  const product = await getProduct(slug);
   if (!product) return {};
   return {
     title: product.shortName,
@@ -30,10 +28,10 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
-  const product = getProduct(slug);
+  const product = await getProduct(slug);
   if (!product) notFound();
 
-  const related = products.filter((item) => item.id !== product.id);
+  const related = (await getPublishedProducts()).filter((item) => item.id !== product.id);
   const schema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -79,6 +77,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <p className="eyebrow text-ink/45">Цвет</p>
               <p className="mt-3 text-sm">{product.color}</p>
             </div>
+            <div className="grid grid-cols-2 gap-6 border-b border-ink/15 py-7 text-sm">
+              <div>
+                <p className="eyebrow text-ink/45">Состав</p>
+                <p className="mt-3">{product.composition}</p>
+              </div>
+              <div>
+                <p className="eyebrow text-ink/45">Плотность</p>
+                <p className="mt-3">{product.density}</p>
+              </div>
+            </div>
           </div>
         </aside>
       </div>
@@ -86,7 +94,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       {related.length > 0 && (
         <section className="site-container border-t border-ink/15 py-20 lg:py-32" aria-labelledby="related-heading">
           <div className="mb-10 flex items-end justify-between gap-5">
-            <div><p className="eyebrow text-ink/45">NUIT 01</p><h2 id="related-heading" className="mt-3 font-display text-4xl leading-none sm:text-5xl">Другой цвет</h2></div>
+            <div><h2 id="related-heading" className="font-display text-4xl leading-none sm:text-5xl">Другой цвет</h2></div>
           </div>
           <div className="grid max-w-[720px] grid-cols-2 gap-3 sm:gap-6">
             {related.map((item) => <ProductCard key={item.id} product={item} />)}

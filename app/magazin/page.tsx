@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ProductCard } from "@/components/product-card";
-import { products } from "@/data/products";
+import { getPublishedProducts } from "@/lib/products";
 import { withBasePath } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -9,7 +9,10 @@ export const metadata: Metadata = {
   openGraph: { title: "T-Shirts — NUIT", images: [{ url: withBasePath("/images/walk-black.jpeg"), width: 960, height: 1280 }] },
 };
 
-export default function ShopPage() {
+export const dynamic = "force-dynamic";
+
+export default async function ShopPage() {
+  const products = await getPublishedProducts();
   return (
     <section className="bg-paper pt-[calc(68px+env(safe-area-inset-top))] text-ink">
       <header className="site-container flex min-h-[42vh] flex-col justify-end pb-10 pt-20 sm:pb-14 lg:min-h-[56vh] lg:pb-20">

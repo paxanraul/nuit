@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProductCard } from "@/components/product-card";
 import { Reveal } from "@/components/reveal";
-import { products } from "@/data/products";
+import { getPublishedProducts } from "@/lib/products";
 import { withBasePath } from "@/lib/site";
 
 const campaignImages = [
@@ -13,7 +13,10 @@ const campaignImages = [
   [withBasePath("/images/two-front-day.jpeg"), "Герои NUIT у колеса обозрения"],
 ] as const;
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const products = await getPublishedProducts();
   return (
     <>
       <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-night text-paper" aria-labelledby="hero-title">

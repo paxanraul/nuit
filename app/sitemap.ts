@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
-import { products } from "@/data/products";
+import { getPublishedProducts } from "@/lib/products";
 import { absoluteUrl } from "@/lib/site";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const products = await getPublishedProducts();
   const staticRoutes = ["", "/magazin", "/kontakty"];
   return [
     ...staticRoutes.map((route) => ({ url: absoluteUrl(`${route}/`), changeFrequency: "weekly" as const, priority: route === "" ? 1 : 0.7 })),

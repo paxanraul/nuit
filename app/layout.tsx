@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Manrope, Prata } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { siteOrigin, withBasePath } from "@/lib/site";
 
-const display = Cormorant_Garamond({ subsets: ["cyrillic", "latin"], variable: "--font-display", weight: ["400", "500", "600"], display: "swap" });
+const display = Prata({ subsets: ["cyrillic", "latin"], variable: "--font-display", weight: "400", display: "swap" });
 const sans = Manrope({ subsets: ["cyrillic", "latin"], variable: "--font-sans", weight: ["400", "500", "600"], display: "swap" });
 const siteDescription = "NUIT — after midnight. South Caucasus mood. Ночь, вкус, детали.";
 

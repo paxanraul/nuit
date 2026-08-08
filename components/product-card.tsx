@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Product } from "@/data/products";
+import type { Product } from "@/lib/products";
 import { formatPrice } from "@/lib/utils";
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
