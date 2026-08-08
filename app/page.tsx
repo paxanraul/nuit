@@ -51,9 +51,9 @@ export default function HomePage() {
               Коллекция <ArrowRight aria-hidden="true" size={15} />
             </Link>
           </Reveal>
-          <div className="grid grid-cols-2 gap-x-3 gap-y-12 sm:gap-x-6 lg:gap-x-12">
+          <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-x-3 gap-y-12 sm:gap-x-6 lg:gap-x-8">
             {products.map((product, index) => (
-              <Reveal key={product.id} delay={index * 0.1} className={index === 1 ? "lg:mt-24" : undefined}>
+              <Reveal key={product.id} delay={index * 0.1}>
                 <ProductCard product={product} />
               </Reveal>
             ))}

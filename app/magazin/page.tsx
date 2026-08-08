@@ -19,7 +19,7 @@ export default function ShopPage() {
           <p className="max-w-sm text-sm leading-relaxed text-ink/55 md:text-right">Первая коллекция NUIT. Черный и белый.</p>
         </div>
       </header>
-      <div className="site-container grid grid-cols-2 gap-x-3 gap-y-12 border-t border-ink/15 pb-24 pt-10 sm:gap-x-6 lg:gap-x-10 lg:gap-y-20 lg:pb-36 lg:pt-16">
+      <div className="site-container mx-auto grid max-w-[1180px] grid-cols-2 gap-x-3 gap-y-12 border-t border-ink/15 pb-24 pt-10 sm:gap-x-6 lg:gap-x-8 lg:gap-y-16 lg:pb-28 lg:pt-14">
         {products.map((product, index) => (
           <ProductCard key={product.id} product={product} priority={index < 2} />
         ))}
