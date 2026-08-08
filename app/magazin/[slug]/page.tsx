@@ -72,16 +72,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <aside className="px-5 pb-16 pt-9 sm:px-8 lg:col-span-4 lg:px-10 lg:pb-24 lg:pt-14 xl:px-14">
           <div className="lg:sticky lg:top-28">
             <div className="border-b border-ink/15 pb-8">
-              <p className="eyebrow text-ink/45">FIRST DROP · NUIT 01</p>
-              <h1 className="mt-4 max-w-xl font-display text-[clamp(2.7rem,5vw,5.5rem)] font-medium leading-[.9] tracking-editorial">{product.shortName}</h1>
+              <h1 className="max-w-xl font-display text-[clamp(2.7rem,5vw,5.5rem)] font-medium leading-[.9] tracking-editorial">{product.shortName}</h1>
               <p className="mt-6 text-sm">{formatPrice(product.price)}</p>
             </div>
             <div className="border-b border-ink/15 py-7">
               <p className="eyebrow text-ink/45">Цвет</p>
               <p className="mt-3 text-sm">{product.color}</p>
             </div>
-            <p className="py-7 text-sm leading-relaxed text-ink/65">{product.description}</p>
-            <p className="border-t border-ink/15 pt-7 text-[10px] uppercase tracking-label text-ink/40">Презентационный макет первой коллекции</p>
           </div>
         </aside>
       </div>
