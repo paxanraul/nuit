@@ -4,9 +4,9 @@ import { products } from "@/data/products";
 import { withBasePath } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Магазин",
+  title: "T-Shirts",
   description: "Первая коллекция NUIT. Футболки свободного силуэта, созданные для ночей, которые остаются в памяти.",
-  openGraph: { title: "Магазин — NUIT", images: [{ url: withBasePath("/images/walk-black.jpeg"), width: 960, height: 1280 }] },
+  openGraph: { title: "T-Shirts — NUIT", images: [{ url: withBasePath("/images/walk-black.jpeg"), width: 960, height: 1280 }] },
 };
 
 export default function ShopPage() {
@@ -15,7 +15,7 @@ export default function ShopPage() {
       <header className="site-container flex min-h-[42vh] flex-col justify-end pb-10 pt-20 sm:pb-14 lg:min-h-[56vh] lg:pb-20">
         <p className="eyebrow text-ink/45">FIRST DROP · 2026</p>
         <div className="mt-5 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <h1 className="font-display text-[clamp(4rem,10vw,9rem)] font-medium leading-[.78] tracking-editorial">Магазин</h1>
+          <h1 className="font-display text-[clamp(4rem,10vw,9rem)] font-medium leading-[.78] tracking-editorial">T-Shirts</h1>
           <p className="max-w-sm text-sm leading-relaxed text-ink/55 md:text-right">Первая коллекция NUIT. Черный и белый.</p>
         </div>
       </header>
