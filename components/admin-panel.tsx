@@ -72,7 +72,7 @@ export function AdminPanel({ initialProducts }: { initialProducts: AdminProduct[
       </div>
 
       {editing && <div className="fixed inset-0 z-[60] overflow-y-auto bg-night/55 px-4 py-6 backdrop-blur-sm sm:px-8 sm:py-10"><form onSubmit={save} className="mx-auto max-w-2xl bg-paper p-5 text-ink sm:p-9">
-        <div className="flex items-start justify-between gap-5 border-b border-ink/15 pb-6"><div><p className="eyebrow text-ink/45">{editing.id ? "Редактирование" : "Новый товар"}</p><h2 className="mt-3 font-display text-4xl leading-none">{editing.id ? "Редактирование" : "Новый товар"}</h2></div><button type="button" className="icon-button" onClick={() => setEditing(null)} aria-label="Закрыть"><X size={20} /></button></div>
+        <div className="flex items-start justify-between gap-5 border-b border-ink/15 pb-6"><div>{editing.id ? <p className="eyebrow text-ink/45">Редактирование</p> : null}<h2 className="mt-3 font-display text-4xl leading-none">{editing.id ? "Редактирование" : "Новый товар"}</h2></div><button type="button" className="icon-button" onClick={() => setEditing(null)} aria-label="Закрыть"><X size={20} /></button></div>
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
           <Field label="Название"><input name="name" required defaultValue={editing.name} className="field" /></Field>
           <Field label="Название на карточке"><input name="shortName" required defaultValue={editing.shortName} className="field" /></Field>
