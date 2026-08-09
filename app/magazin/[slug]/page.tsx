@@ -52,7 +52,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="hide-scrollbar flex snap-x snap-mandatory gap-2 overflow-x-auto px-5 pb-2 pt-5 md:hidden">
             {product.images.map((src, index) => (
               <figure key={src} className="relative aspect-[3/4] w-[86vw] shrink-0 snap-center overflow-hidden bg-[#ddd8ce]">
-                <Image src={src} alt={`${product.name}, фото ${index + 1}`} fill priority={index === 0} quality={70} sizes="86vw" className={src.includes("/product-") ? "bg-[#0d0d0d] object-contain p-4" : "object-cover"} />
+                <Image src={src} alt={`${product.name}, фото ${index + 1}`} fill priority={index === 0} sizes="86vw" className={src.includes("/product-") ? "bg-[#0d0d0d] object-contain p-4" : "object-cover"} />
                 <figcaption className="absolute bottom-3 right-3 bg-paper/90 px-2 py-1 text-[9px] tracking-label">0{index + 1} / 0{product.images.length}</figcaption>
               </figure>
             ))}
@@ -61,7 +61,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="hidden grid-cols-2 gap-px bg-ink/10 md:grid">
             {product.images.map((src, index) => (
               <div key={src} className="relative aspect-[3/4] overflow-hidden bg-[#ddd8ce]">
-                <Image src={src} alt={`${product.name}, фото ${index + 1}`} fill priority={index < 2} quality={70} sizes="(max-width: 1024px) 50vw, 34vw" className={src.includes("/product-") ? "bg-[#0d0d0d] object-contain p-8" : "object-cover"} />
+                <Image src={src} alt={`${product.name}, фото ${index + 1}`} fill priority={index < 2} sizes="(max-width: 1024px) 50vw, 34vw" className={src.includes("/product-") ? "bg-[#0d0d0d] object-contain p-8" : "object-cover"} />
               </div>
             ))}
           </div>

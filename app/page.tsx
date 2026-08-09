@@ -78,7 +78,7 @@ export default async function HomePage() {
             {campaignImages.map(([src, alt], index) => (
               <Reveal key={src} delay={index * 0.06} className={index % 2 ? "mt-10 lg:mt-20" : undefined}>
                 <div className="relative aspect-[3/4] overflow-hidden bg-[#d8d3c9]">
-                  <Image src={src} alt={alt} fill quality={70} sizes="(max-width: 768px) 50vw, 25vw" className="object-cover transition duration-700 ease-editorial hover:scale-[1.02]" />
+                  <Image src={src} alt={alt} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover transition duration-700 ease-editorial hover:scale-[1.02]" />
                 </div>
               </Reveal>
             ))}

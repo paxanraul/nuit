@@ -13,7 +13,6 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             alt={product.name}
             fill
             priority={priority}
-            quality={70}
             sizes="(max-width: 768px) 50vw, 40vw"
             className="object-cover transition duration-700 ease-editorial md:group-hover:scale-[1.015] md:group-hover:opacity-0"
           />
@@ -21,7 +20,6 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             src={product.hoverImage}
             alt={`${product.name}, вид сзади`}
             fill
-            quality={70}
             sizes="(max-width: 768px) 50vw, 40vw"
             className="hidden object-cover opacity-0 transition duration-700 ease-editorial group-hover:scale-[1.015] group-hover:opacity-100 md:block"
           />
