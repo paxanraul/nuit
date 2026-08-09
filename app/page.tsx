@@ -20,14 +20,15 @@ export default async function HomePage() {
   return (
     <>
       <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-night text-paper" aria-labelledby="hero-title">
-        <picture className="absolute inset-0 -z-20">
-          <img
-            src={withBasePath("/images/hero-sunset-desktop.jpeg")}
-            alt="Футболка NUIT на фоне заката"
-            fetchPriority="high"
-            className="size-full object-cover object-[50%_42%] sm:object-[50%_38%]"
-          />
-        </picture>
+        <Image
+          src={withBasePath("/images/hero-sunset-desktop.jpeg")}
+          alt="Футболка NUIT на фоне заката"
+          fill
+          priority
+          quality={72}
+          sizes="100vw"
+          className="-z-20 object-cover object-[50%_42%] sm:object-[50%_38%]"
+        />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/80 via-black/10 to-black/30" />
         <div className="site-container pb-8 pt-40 sm:pb-12 lg:pb-14">
           <Reveal>
